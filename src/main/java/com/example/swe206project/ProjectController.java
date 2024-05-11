@@ -109,11 +109,11 @@ public class ProjectController {
     public void initialize() {
 
     try{
-        Image image = new Image("file:///C:/Users/muhan/IdeaProjects/Swe206-Project/src/main/resources/com/example/swe206project/Home.png");
+        Image image = new Image(getClass().getResource("/com/example/swe206project/Home.png").toString());
         HomeIcon.setImage(image);
-        Image image2 = new Image("file:///C:/Users/muhan/IdeaProjects/Swe206-Project/src/main/resources/com/example/swe206project/Account.png");
+            Image image2 = new Image(getClass().getResource("/com/example/swe206project/Account.png").toString());
         AccountIcon.setImage(image2);
-        Image image3 = new Image("C:\\Users\\muhan\\IdeaProjects\\Swe206-Project\\src\\main\\resources\\com\\example\\swe206project\\Kfupm.png");
+        Image image3 = new Image(getClass().getResource("/com/example/swe206project/Kfupm.png").toString());
         KfupmIcon.setImage(image3);}
             catch (Exception e) {
                 System.out.println("Error loading image: " + e.getMessage());
