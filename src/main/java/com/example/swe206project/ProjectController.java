@@ -144,7 +144,7 @@ public class ProjectController {
         RegisterLabel.setText("Login");
         RegisterButton.setText("Login");
         LoginLabel.setText("Register!");
-        AlreadyRegisteredLabel.setText("Already have an account?");
+        AlreadyRegisteredLabel.setText("Dont have an account?");
         UsernameInput.clear();
         PasswordInput.clear();
         EmailInput.clear();
