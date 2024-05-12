@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -17,14 +18,14 @@
    <children>
       <AnchorPane layoutY="-2.0" prefHeight="700.0" prefWidth="900.0">
          <children>
-            <HBox fx:id="MenuBar" alignment="CENTER" prefHeight="35.0" prefWidth="900.0" style="-fx-background-color: #008540; -fx-spacing: 20;">
+            <HBox fx:id="MenuBar" alignment="CENTER" prefHeight="50.0" prefWidth="902.0" style="-fx-background-color: #008540; -fx-spacing: 20;">
                <children>
                   <ImageView fitHeight="33.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true" />
                   <StackPane alignment="BOTTOM_CENTER" prefHeight="22.0" prefWidth="26.0">
                      <children>
                         <ImageView fx:id="KfupmIcon" fitHeight="50.0" fitWidth="50.0">
                            <image>
-                              <Image url="@../../../../../../../../OneDrive/Desktop/Icons/Kfupm.png" />
+                              <Image url="@Kfupm.png" />
                            </image>
                         </ImageView>
                         <Button fx:id="KfupmButton" mnemonicParsing="false" onAction="#KfupmButtonClick" opacity="0.0" prefHeight="55.0" prefWidth="55.0" text="Button" />
@@ -39,7 +40,7 @@
                      <children>
                         <ImageView fx:id="HomeIcon" fitHeight="40.0" fitWidth="40.0">
                            <image>
-                              <Image url="@../../../../../../../../OneDrive/Desktop/Icons/Home.png" />
+                              <Image url="@Home.png" />
                            </image>
                         </ImageView>
                         <Button fx:id="HomeButton" mnemonicParsing="false" onAction="#HomeButtonClick" opacity="0.0" prefHeight="40.0" prefWidth="40.0" text="Button" />
@@ -49,7 +50,7 @@
                      <children>
                         <ImageView fx:id="AccountIcon" fitHeight="35.0" fitWidth="45.0">
                            <image>
-                              <Image url="@../../../../../../../../OneDrive/Desktop/Icons/Account.png" />
+                              <Image url="@Account.png" />
                            </image>
                         </ImageView>
                         <Button fx:id="AccountButton" mnemonicParsing="false" onAction="#AccountButtonClick" opacity="0.0" prefHeight="35.0" prefWidth="45.0" text="Button" />
@@ -57,7 +58,7 @@
                   </StackPane>
                </children>
             </HBox>
-            <VBox fx:id="RegisterBar" alignment="CENTER" layoutY="190.0" prefHeight="360.0" prefWidth="900.0" style="-fx-background-color: #Eaeaea;">
+            <VBox fx:id="RegisterBar" alignment="CENTER" layoutY="168.0" prefHeight="400.0" prefWidth="900.0" style="-fx-background-color: #Eaeaea;" visible="false">
                <children>
                   <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0">
                      <children>
@@ -66,6 +67,11 @@
                               <Font name="System Bold" size="24.0" />
                            </font>
                         </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="30.0" prefWidth="307.0">
+                     <children>
+                        <Label fx:id="RegisterErrorLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="535.0" textFill="#e40606" />
                      </children>
                   </HBox>
                   <HBox fx:id="EmailBar" alignment="CENTER" prefHeight="50.0" prefWidth="200.0" style="-fx-spacing: 20;">
@@ -126,6 +132,157 @@
                   </HBox>
                </children>
             </VBox>
+            <Label fx:id="WelcomeLabel" layoutX="237.0" layoutY="77.0" text="Welcome to Kfupm Reservation System" visible="false">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Label fx:id="LiketodoLabel" layoutX="329.0" layoutY="414.0" text="What would you like to do?" visible="false">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <HBox fx:id="ImagesHbox" layoutY="131.0" prefHeight="250.0" prefWidth="902.0" visible="false">
+               <children>
+                  <ImageView fx:id="GymImage" fitHeight="250.0" fitWidth="300.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@Gym.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="LabImage" fitHeight="250.0" fitWidth="300.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@Lab.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="ClassroomImage" fitHeight="250.0" fitWidth="302.1" pickOnBounds="true">
+                     <image>
+                        <Image url="@Classroom.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox fx:id="ButtonsHbox" alignment="CENTER" layoutX="2.0" layoutY="510.0" prefHeight="34.0" prefWidth="900.0" style="-fx-spacing: 130;" visible="false">
+               <children>
+                  <StackPane prefHeight="34.0" prefWidth="140.0" style="-fx-background-color: #008540; -fx-background-radius: 4;">
+                     <children>
+                        <Label text="Make a Reservation" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Button mnemonicParsing="false" onAction="#MakeReservationButtonClick" opacity="0.0" prefHeight="34.0" prefWidth="150.0" text="Make a Reservation" />
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="34.0" prefWidth="150.0" style="-fx-background-color: #008540; -fx-background-radius: 4;">
+                     <children>
+                        <Label text="Open Reservation Event" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Button mnemonicParsing="false" onAction="#OpenReservationEventButtonClick" opacity="0.0" prefHeight="36.0" prefWidth="159.0" text="Open Reservation Event" />
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="34.0" prefWidth="140.0" style="-fx-background-color: #008540; -fx-background-radius: 4;">
+                     <children>
+                        <Label text="Join Resravtion Event" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Button mnemonicParsing="false" onAction="#JoinReservationEventButtonClick" opacity="0.0" prefHeight="26.0" prefWidth="140.0" text="Join Resravtion Event" />
+                     </children>
+                  </StackPane>
+               </children>
+            </HBox>
+            <HBox fx:id="AdminButtonsHbox" alignment="CENTER" layoutX="233.0" layoutY="597.0" prefHeight="34.0" prefWidth="434.0" style="-fx-spacing: 120;" visible="false">
+               <children>
+                  <StackPane prefHeight="34.0" prefWidth="140.0" style="-fx-background-color: #008540; -fx-background-radius: 4;">
+                     <children>
+                        <Label text="View All Reservations" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Button mnemonicParsing="false" onAction="#ViewAllReservationsButtonClick" opacity="0.0" prefHeight="36.0" prefWidth="140.0" text="View All Reservations" />
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="34.0" prefWidth="140.0" style="-fx-background-color: #008540; -fx-background-radius: 4;">
+                     <children>
+                        <Label text="Cancel a Reservation" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Button mnemonicParsing="false" onAction="#CancelReservationButtonClick" opacity="0.0" text="Cancel a Reservation" />
+                     </children>
+                  </StackPane>
+               </children>
+            </HBox>
+            <AnchorPane fx:id="ChoicePage" layoutX="2.0" layoutY="50.0" prefHeight="650.0" prefWidth="900.0" visible="false">
+               <children>
+                  <StackPane layoutX="14.0" layoutY="45.0" prefHeight="150.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fx:id="SwimImage" fitHeight="151.0" fitWidth="208.0">
+                           <image>
+                              <Image url="@Swim.jpg" />
+                           </image>
+                        </ImageView>
+                        <Button mnemonicParsing="false" onAction="#ExClick" opacity="0.0" prefHeight="241.0" prefWidth="310.0" text="Button" />
+                     </children>
+                  </StackPane>
+                  <Label layoutX="270.0" layoutY="14.0" prefHeight="32.0" prefWidth="376.0" text="Please Choose a Place to Reserve">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="ReservationInfoPage" layoutX="104.0" layoutY="231.0" prefHeight="290.0" prefWidth="707.0" style="-fx-background-color: #EAEAEA;" visible="false">
+               <children>
+                  <HBox alignment="CENTER" layoutX="-2.0" layoutY="25.0" prefHeight="50.0" prefWidth="707.0">
+                     <children>
+                        <Label text="Enter your Reservation Information">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutY="101.0" prefHeight="50.0" prefWidth="707.0" style="-fx-spacing: 10;">
+                     <children>
+                        <Label text="Reservation Reason" />
+                        <TextField fx:id="ReservationReasonInput" prefHeight="26.0" prefWidth="274.0" />
+                        <Label text="             Date" />
+                        <TextField fx:id="DateInput" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutX="-2.0" layoutY="152.0" prefHeight="50.0" prefWidth="707.0" style="-fx-spacing: 10;">
+                     <children>
+                        <Label text="Start Time" />
+                        <TextField fx:id="StartTimeInput" />
+                        <Separator prefHeight="12.0" prefWidth="88.0" visible="false" />
+                        <Label text="End Time" />
+                        <TextField fx:id="EndTimeInput" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutY="50.0" prefHeight="69.0" prefWidth="707.0">
+                     <children>
+                        <Label />
+                     </children>
+                  </HBox>
+                  <HBox alignment="TOP_CENTER" layoutX="-2.0" layoutY="240.0" prefHeight="50.0" prefWidth="707.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#ConfirmButtonClick" text="Confirm" />
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+            <Label fx:id="SuccessLabel" layoutX="301.0" layoutY="661.0" text="You have Successfully Made a Reservation" visible="false">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>

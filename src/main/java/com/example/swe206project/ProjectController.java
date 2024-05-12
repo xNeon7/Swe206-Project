@@ -23,7 +23,13 @@ public class ProjectController {
     private ImageView AccountIcon;
 
     @FXML
+    private HBox AdminButtonsHbox;
+
+    @FXML
     private Label AlreadyRegisteredLabel;
+
+    @FXML
+    private HBox ButtonsHbox;
 
     @FXML
     private HBox EmailBar;
@@ -41,10 +47,16 @@ public class ProjectController {
     private ImageView HomeIcon;
 
     @FXML
+    private HBox ImagesHbox;
+
+    @FXML
     private Button KfupmButton;
 
     @FXML
     private ImageView KfupmIcon;
+
+    @FXML
+    private Label LiketodoLabel;
 
     @FXML
     private Button LoginButton;
@@ -65,6 +77,9 @@ public class ProjectController {
     private Button RegisterButton;
 
     @FXML
+    private Label RegisterErrorLabel;
+
+    @FXML
     private Label RegisterLabel;
 
     @FXML
@@ -72,19 +87,73 @@ public class ProjectController {
 
     @FXML
     private HBox TypeBar;
+    @FXML
+    private AnchorPane ReservationInfoPage;
+
+    @FXML
+    private AnchorPane ChoicePage;
+
+    @FXML
+    private TextField DateInput;
+    @FXML
+    private TextField StartTimeInput;
+    @FXML
+    private TextField EndTimeInput;
+    @FXML
+    private TextField ReservationReasonInput;
+    @FXML
+    private Label SuccessLabel;
 
     @FXML
     private TextField UsernameInput;
 
+    @FXML
+    private Label WelcomeLabel;
+    @FXML
+
+    private ImageView ClassroomImage;
+    @FXML
+
+    private ImageView GymImage;
+    @FXML
+
+    private ImageView LabImage;
+    @FXML
+    private ImageView SwimImage;
 
     @FXML
-    void HomeButtonClick(ActionEvent event) {
+    void MakeReservationButtonClick(ActionEvent event) {
+    ChoicePage.setVisible(true);
+    HideHomepage();
+    }
 
+    @FXML
+    void OpenReservationEventButtonClick(ActionEvent event) {
+
+    }
+    @FXML
+    void JoinReservationEventButtonClick(ActionEvent event) {
+
+    }
+    @FXML
+    void ViewAllReservationsButtonClick(ActionEvent event) {
+
+    }
+
+    @FXML
+    void CancelReservationButtonClick(ActionEvent event) {
+
+    }
+    @FXML
+    void HomeButtonClick(ActionEvent event) {
+    Homepage();
     }
 
     @FXML
     void AccountButtonClick(ActionEvent event) {
     Login();
+    ChoicePage.setVisible(false);
+    ReservationInfoPage.setVisible(false);
     }
 
     @FXML
@@ -93,8 +162,7 @@ public class ProjectController {
     }
     @FXML
     void RegisterButtonClick(ActionEvent event) {
-        MenuBar.setVisible(true);
-        RegisterBar.setVisible(false);
+        Homepage();
     }
     @FXML
     void LoginButtonClick(ActionEvent event) {
@@ -105,27 +173,36 @@ public class ProjectController {
             Register();
         }
     }
+    @FXML
+    void ConfirmButtonClick(ActionEvent event) {
+    Homepage();
+    SuccessLabel.setVisible(true);
 
+    }
+
+    @FXML
+    void ExClick(ActionEvent event) {
+        ReservationInfoPage.setVisible(true);
+        ChoicePage.setVisible(false);
+
+    }
     public void initialize() {
 
-    try{
-        Image image = new Image(getClass().getResource("/com/example/swe206project/Home.png").toString());
-        HomeIcon.setImage(image);
-            Image image2 = new Image(getClass().getResource("/com/example/swe206project/Account.png").toString());
-        AccountIcon.setImage(image2);
-        Image image3 = new Image(getClass().getResource("/com/example/swe206project/Kfupm.png").toString());
-        KfupmIcon.setImage(image3);}
-            catch (Exception e) {
-                System.out.println("Error loading image: " + e.getMessage());
+        try {
+            initializeImages();
+        }catch (Exception e) {
+            System.out.println("Error loading image: " + e.getMessage());
+        }
+            Register();
+        }
 
-            }
-        Register();
-    }
-    void Register(){MenuBar.setVisible(false);
+    void Register () {
+        MenuBar.setVisible(false);
         RegisterBar.setVisible(true);
         EmailBar.setVisible(true);
         TypeBar.setVisible(true);
         GenderBar.setVisible(true);
+        HideHomepage();
         RegisterLabel.setText("Register");
         RegisterButton.setText("Register");
         LoginLabel.setText("Login!");
@@ -134,13 +211,14 @@ public class ProjectController {
         EmailInput.clear();
         AlreadyRegisteredLabel.setText("Already Registered?");
 
-    }
-    void Login(){
+        }
+    void Login () {
         MenuBar.setVisible(false);
         RegisterBar.setVisible(true);
         EmailBar.setVisible(false);
         TypeBar.setVisible(false);
         GenderBar.setVisible(false);
+        HideHomepage();
         RegisterLabel.setText("Login");
         RegisterButton.setText("Login");
         LoginLabel.setText("Register!");
@@ -150,14 +228,51 @@ public class ProjectController {
         EmailInput.clear();
 
     }
-    public boolean findReservation(Reservation Res) {
+    void Homepage () {
+        MenuBar.setVisible(true);
+        RegisterBar.setVisible(false);
+        ImagesHbox.setVisible(true);
+        ButtonsHbox.setVisible(true);
+        LiketodoLabel.setVisible(true);
+        WelcomeLabel.setVisible(true);
+        ChoicePage.setVisible(false);
+        ReservationInfoPage.setVisible(false);
+        SuccessLabel.setVisible(false);
+    }
+    void HideHomepage(){
+        ImagesHbox.setVisible(false);
+        ButtonsHbox.setVisible(false);
+        LiketodoLabel.setVisible(false);
+        WelcomeLabel.setVisible(false);
+        AdminButtonsHbox.setVisible(false);
+    }
+    public boolean findReservation (Reservation Res){
         for (Reservation reservation : Reservations) {
 
             if (reservation.getReservationID().equals(Res.getReservationID())) {
                 return true;
-            }}
+            }
+        }
         return false;
     }
+    void initializeImages () { Image image = new Image(getClass().getResource("/com/example/swe206project/Home.png").toString());
+        HomeIcon.setImage(image);
+        Image image2 = new Image(getClass().getResource("/com/example/swe206project/Account.png").toString());
+        AccountIcon.setImage(image2);
+        Image image3 = new Image(getClass().getResource("/com/example/swe206project/Kfupm.png").toString());
+        KfupmIcon.setImage(image3);
+        Image image4 = new Image(getClass().getResource("/com/example/swe206project/Lab.jpg").toString());
+        LabImage.setImage(image4);
+        Image image5 = new Image(getClass().getResource("/com/example/swe206project/Classroom.Jpg").toString());
+        ClassroomImage.setImage(image5);
+        Image image6 = new Image(getClass().getResource("/com/example/swe206project/Gym.jpg").toString());
+        GymImage.setImage(image6);
+        Image image7 = new Image(getClass().getResource("/com/example/swe206project/Swim.jpg").toString());
+        SwimImage.setImage(image7);
+
+
+    }
+
 }
 
 
