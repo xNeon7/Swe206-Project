@@ -51,6 +51,10 @@ public class User {
 
     public void joinEvent(String eventName){}
 
+    @Override
+    public String toString() {
+        return ("UserName:" + userName + ", UserID:" + userID + ", User Email:" + email);
+    }
 }
 class Admin extends User{
     public Admin(String userName, int userID, String email, String gender) {
@@ -72,12 +76,14 @@ class Staff extends User{
 }
 
 class Student extends User{
-    public Student(String userName, int userID, String email, String gender) {
+
+    boolean inClub;
+    boolean clubPresident;
+
+    public Student(String userName, int userID, String email, String gender, boolean inClub, boolean clubPresident) {
         super(userName, userID, email, gender);
-    }
-}
-class ClubPresident extends Student{
-    public ClubPresident(String userName, int userID, String email, String gender) {
-        super(userName, userID, email, gender);
+        this.inClub = inClub;
+        this.clubPresident = clubPresident;
+
     }
 }

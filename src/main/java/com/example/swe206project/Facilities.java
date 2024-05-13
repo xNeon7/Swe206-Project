@@ -41,39 +41,59 @@ class SportCourt extends Facilities {
         super(facilityID, reservationID, gender);
     }}
 class SwimmingPool extends Facilities {
-
-
     public SwimmingPool(String facilityID, String reservationID, String gender) {
         super(facilityID, reservationID, gender);
     }}
-class Classroom {
-    private String roomID;
-    private String reservationID;
 
-    private String capacity;
+class Classroom {
+
+
+    private int roomNumber;
+
+    //private String reservationID;
+
+    private int capacity;
     private String genderRestriction;
 
-    public Classroom(String roomID, String reservationID, String capacity, String genderRestriction) {
-        this.roomID = roomID;
-        this.reservationID = reservationID;
+    public Classroom(int roomNumber, int capacity, String genderRestriction ) {
+
+        this.roomNumber = roomNumber;
         this.capacity = capacity;
         this.genderRestriction = genderRestriction;
 
     }
+
+    @Override
+    public String toString() {
+        return ("Room Number: " + roomNumber + ", Capacity: " + capacity + ", Gender restriction: " + genderRestriction);
+    }
 }
 class Labs {
-    private String roomID;
-    private String reservationID;
-    private String capacity;
+    private int LabNumber;
 
+    private int capacity;
 
     private String genderRestriction;
 
-    public Labs(String roomID, String reservationID, String capacity,String genderRestriction) {
-        this.roomID = roomID;
-        this.reservationID = reservationID;
+    public Labs(int LabNumber, int capacity, String genderRestriction) {
+        this.LabNumber = LabNumber;
         this.capacity = capacity;
         this.genderRestriction = genderRestriction;
 
+    }
+    @Override
+    public String toString() {
+        if(LabNumber<1000){
+            if(LabNumber<10){
+                return ("Room Number: 000" + LabNumber + ", Capacity: " + capacity + ", Gender restriction: " + genderRestriction);
+            }
+            else {
+                return ("Room Number: 00" + LabNumber + ", Capacity: " + capacity + ", Gender restriction: " + genderRestriction);
+
+            }
+        }
+        else {
+            return ("Room Number: " + LabNumber + ", Capacity: " + capacity + ", Gender restriction: " + genderRestriction);
+        }
     }
 }
