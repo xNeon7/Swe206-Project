@@ -16,7 +16,7 @@
 
 <AnchorPane prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.swe206project.ProjectController">
    <children>
-      <AnchorPane layoutY="-2.0" prefHeight="700.0" prefWidth="900.0">
+      <AnchorPane prefHeight="700.0" prefWidth="900.0">
          <children>
             <HBox fx:id="MenuBar" alignment="CENTER" prefHeight="50.0" prefWidth="902.0" style="-fx-background-color: #008540; -fx-spacing: 20;">
                <children>
@@ -132,7 +132,7 @@
                   </HBox>
                </children>
             </VBox>
-            <Label fx:id="WelcomeLabel" layoutX="237.0" layoutY="77.0" text="Welcome to Kfupm Reservation System" visible="false">
+            <Label fx:id="WelcomeLabel" layoutX="235.0" layoutY="62.0" text="Welcome to Kfupm Reservation System" visible="false">
                <font>
                   <Font size="25.0" />
                </font>
@@ -142,25 +142,6 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <HBox fx:id="ImagesHbox" layoutY="131.0" prefHeight="250.0" prefWidth="902.0" visible="false">
-               <children>
-                  <ImageView fx:id="GymImage" fitHeight="250.0" fitWidth="300.0" pickOnBounds="true">
-                     <image>
-                        <Image url="@Gym.jpg" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="LabImage" fitHeight="250.0" fitWidth="300.0" pickOnBounds="true">
-                     <image>
-                        <Image url="@Lab.jpg" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="ClassroomImage" fitHeight="250.0" fitWidth="302.1" pickOnBounds="true">
-                     <image>
-                        <Image url="@Classroom.jpg" />
-                     </image>
-                  </ImageView>
-               </children>
-            </HBox>
             <HBox fx:id="ButtonsHbox" alignment="CENTER" layoutX="2.0" layoutY="510.0" prefHeight="34.0" prefWidth="900.0" style="-fx-spacing: 130;" visible="false">
                <children>
                   <StackPane prefHeight="34.0" prefWidth="140.0" style="-fx-background-color: #008540; -fx-background-radius: 4;">
@@ -221,24 +202,92 @@
             </HBox>
             <AnchorPane fx:id="ChoicePage" layoutX="2.0" layoutY="50.0" prefHeight="650.0" prefWidth="900.0" visible="false">
                <children>
-                  <StackPane layoutX="14.0" layoutY="45.0" prefHeight="150.0" prefWidth="200.0">
-                     <children>
-                        <ImageView fx:id="SwimImage" fitHeight="151.0" fitWidth="208.0">
-                           <image>
-                              <Image url="@Swim.jpg" />
-                           </image>
-                        </ImageView>
-                        <Button mnemonicParsing="false" onAction="#ExClick" opacity="0.0" prefHeight="241.0" prefWidth="310.0" text="Button" />
-                     </children>
-                  </StackPane>
-                  <Label layoutX="270.0" layoutY="14.0" prefHeight="32.0" prefWidth="376.0" text="Please Choose a Place to Reserve">
+                  <Label layoutX="280.0" layoutY="14.0" prefHeight="32.0" prefWidth="376.0" text="Please Choose a Place to Reserve">
                      <font>
                         <Font size="22.0" />
                      </font>
                   </Label>
+                  <VBox layoutY="325.0" prefHeight="273.0" prefWidth="900.0">
+                     <children>
+                        <HBox alignment="TOP_CENTER" prefHeight="26.0" prefWidth="900.0" style="-fx-spacing: 200;">
+                           <children>
+                              <StackPane prefHeight="26.0" prefWidth="100.0" style="-fx-background-color: #008540; -fx-background-radius: 4;">
+                                 <children>
+                                    <Label text="Gym" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <Button mnemonicParsing="false" onAction="#GymButtonClick" opacity="0.0" prefHeight="25.0" prefWidth="100.0" text="Gym" />
+                                 </children>
+                              </StackPane>
+                              <StackPane prefHeight="26.0" prefWidth="100.0" style="-fx-background-color: #008540; -fx-background-radius: 4;">
+                                 <children>
+                                    <Label text="Computer Lab" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <Button mnemonicParsing="false" onAction="#ComputerLabButtonClick" opacity="0.0" prefHeight="25.0" prefWidth="100.0" text="Computer Lab" />
+                                 </children>
+                              </StackPane>
+                              <StackPane prefHeight="26.0" prefWidth="100.0" style="-fx-background-color: #008540; -fx-background-radius: 4;">
+                                 <children>
+                                    <Label text="Classroom" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <Button mnemonicParsing="false" onAction="#ClassroomButtonClick" opacity="0.0" prefHeight="25.0" prefWidth="100.0" text="Classroom" />
+                                 </children>
+                              </StackPane>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="12.0" prefWidth="200.0" />
+                        <HBox alignment="CENTER" prefHeight="110.0" prefWidth="100.0" style="-fx-spacing: 80;">
+                           <children>
+                              <ImageView fx:id="SwimImage" fitHeight="200.0" fitWidth="290.0">
+                                 <image>
+                                    <Image url="@Swim.jpg" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="SportCourt" fitHeight="200.0" fitWidth="290.0" pickOnBounds="true">
+                                 <image>
+                                    <Image url="@SportCourt.jpg" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="10.0" prefWidth="200.0" />
+                        <HBox alignment="BOTTOM_CENTER" prefHeight="26.0" prefWidth="900.0" style="-fx-spacing: 270;">
+                           <children>
+                              <StackPane prefHeight="26.0" prefWidth="100.0" style="-fx-background-color: #008540; -fx-background-radius: 4;">
+                                 <children>
+                                    <Label text="Swimming Pool" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <Button mnemonicParsing="false" onAction="#SwimmingPoolButtonClick" opacity="0.0" prefHeight="25.0" prefWidth="100.0" text="Swimming Pool" />
+                                 </children>
+                              </StackPane>
+                              <StackPane prefHeight="26.0" prefWidth="100.0" style="-fx-background-color: #008540; -fx-background-radius: 4;">
+                                 <children>
+                                    <Label text="Sport Court" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <Button mnemonicParsing="false" onAction="#SportCourtButtonClick" opacity="0.0" prefHeight="25.0" prefWidth="100.0" text="Sport Court" />
+                                 </children>
+                              </StackPane>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="ReservationInfoPage" layoutX="104.0" layoutY="231.0" prefHeight="290.0" prefWidth="707.0" style="-fx-background-color: #EAEAEA;" visible="false">
+            <AnchorPane fx:id="ReservationInfoPage" layoutX="104.0" layoutY="231.0" prefHeight="351.0" prefWidth="707.0" style="-fx-background-color: #EAEAEA;" visible="false">
                <children>
                   <HBox alignment="CENTER" layoutX="-2.0" layoutY="25.0" prefHeight="50.0" prefWidth="707.0">
                      <children>
@@ -261,28 +310,57 @@
                      <children>
                         <Label text="Start Time" />
                         <TextField fx:id="StartTimeInput" />
-                        <Separator prefHeight="12.0" prefWidth="88.0" visible="false" />
+                        <Separator prefHeight="12.0" prefWidth="79.0" visible="false" />
                         <Label text="End Time" />
                         <TextField fx:id="EndTimeInput" />
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" layoutY="50.0" prefHeight="69.0" prefWidth="707.0">
+                  <HBox alignment="CENTER" layoutY="50.0" prefHeight="50.0" prefWidth="707.0">
                      <children>
+                        <Label fx:id="ReservationErrorInfoLabel" textFill="#f20707" />
                         <Label />
                      </children>
                   </HBox>
-                  <HBox alignment="TOP_CENTER" layoutX="-2.0" layoutY="240.0" prefHeight="50.0" prefWidth="707.0">
+                  <HBox alignment="TOP_CENTER" layoutY="275.0" prefHeight="50.0" prefWidth="707.0">
                      <children>
                         <Button mnemonicParsing="false" onAction="#ConfirmButtonClick" text="Confirm" />
                      </children>
                   </HBox>
+                  <HBox alignment="CENTER" layoutY="210.0" prefHeight="50.0" prefWidth="707.0" style="-fx-spacing: 10;">
+                     <children>
+                        <Label text="Participants" />
+                        <TextField fx:id="ParticipantsInput" prefHeight="26.0" prefWidth="62.0" />
+                        <Separator prefHeight="12.0" prefWidth="163.0" visible="false" />
+                        <Label fx:id="RoomIDLabel" text="Room ID" />
+                        <TextField fx:id="RoomIDInput" prefHeight="26.0" prefWidth="62.0" />
+                     </children>
+                  </HBox>
                </children>
             </AnchorPane>
-            <Label fx:id="SuccessLabel" layoutX="301.0" layoutY="661.0" text="You have Successfully Made a Reservation" visible="false">
+            <Label fx:id="SuccessLabel" layoutX="258.0" layoutY="661.0" prefWidth="400.0" text="You have Successfully Made a Reservation" visible="false">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
+            <HBox fx:id="ImagesHbox" layoutX="-1.0" layoutY="106.0" prefHeight="250.0" prefWidth="902.0" visible="false">
+               <children>
+                  <ImageView fx:id="GymImage" fitHeight="250.0" fitWidth="300.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@Gym.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="LabImage" fitHeight="250.0" fitWidth="300.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@Lab.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="ClassroomImage" fitHeight="250.0" fitWidth="302.4" pickOnBounds="true">
+                     <image>
+                        <Image url="@Classroom.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
          </children>
       </AnchorPane>
    </children>

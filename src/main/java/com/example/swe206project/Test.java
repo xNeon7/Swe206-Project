@@ -44,7 +44,7 @@ public class Test {
         ArrayList<Admin> admins = new ArrayList<>();
         admins.add(new Admin("Mohammed Alfilfil", 202034780, "s202034780@kfupm.edu.com", "Male"));
         admins.add(new Admin("Alridha Almaden", 202164610, "s202164610@kfupm.edu.com", "Male"));
-        admins.add(new Admin("Muhannad AlMelaifi", 202034780, "s202253960@kfupm.edu.com", "Male"));
+        admins.add(new Admin("Muhannad AlMelaifi", 202253960, "s202253960@kfupm.edu.com", "Male"));
 
         System.out.println();
         System.out.println();

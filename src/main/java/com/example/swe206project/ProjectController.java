@@ -13,7 +13,7 @@ import java.util.*;
 import java.time.LocalDateTime;
 import javafx.event.ActionEvent;
 
-public class ProjectController {
+public class  ProjectController {
     ArrayList<Reservation> Reservations = new ArrayList<>();
 
     @FXML
@@ -56,6 +56,9 @@ public class ProjectController {
     private ImageView KfupmIcon;
 
     @FXML
+    private ImageView SportCourt;
+
+    @FXML
     private Label LiketodoLabel;
 
     @FXML
@@ -94,6 +97,16 @@ public class ProjectController {
     private AnchorPane ChoicePage;
 
     @FXML
+    private Label RoomIDLabel;
+
+    @FXML
+    private Label ReservationErrorInfoLabel;
+
+    @FXML
+    private TextField RoomIDInput;
+    @FXML
+    private TextField ParticipantsInput;
+    @FXML
     private TextField DateInput;
     @FXML
     private TextField StartTimeInput;
@@ -125,10 +138,18 @@ public class ProjectController {
     void MakeReservationButtonClick(ActionEvent event) {
     ChoicePage.setVisible(true);
     HideHomepage();
+    ImagesHbox.setVisible(true);
+    SuccessLabel.setVisible(false);
+    SuccessLabel.setText("You have Successfully made a Reservation");
     }
 
     @FXML
     void OpenReservationEventButtonClick(ActionEvent event) {
+        ChoicePage.setVisible(true);
+        HideHomepage();
+        ImagesHbox.setVisible(true);
+        SuccessLabel.setVisible(false);
+        SuccessLabel.setText("You have Successfully Opened a Reservation Event");
 
     }
     @FXML
@@ -181,9 +202,34 @@ public class ProjectController {
     }
 
     @FXML
-    void ExClick(ActionEvent event) {
+    void ClassroomButtonClick(ActionEvent event) {
         ReservationInfoPage.setVisible(true);
         ChoicePage.setVisible(false);
+        ImagesHbox.setVisible(false);
+    }
+    @FXML
+    void ComputerLabButtonClick(ActionEvent event) {
+        ReservationInfoPage.setVisible(true);
+        ChoicePage.setVisible(false);
+        ImagesHbox.setVisible(false);
+    }
+    @FXML
+    void SportCourtButtonClick(ActionEvent event) {
+        ReservationInfoPage.setVisible(true);
+        ChoicePage.setVisible(false);
+        ImagesHbox.setVisible(false);
+    }
+    @FXML
+    void GymButtonClick(ActionEvent event) {
+        ReservationInfoPage.setVisible(true);
+        ChoicePage.setVisible(false);
+        ImagesHbox.setVisible(false);
+    }
+    @FXML
+    void SwimmingPoolButtonClick(ActionEvent event) {
+        ReservationInfoPage.setVisible(true);
+        ChoicePage.setVisible(false);
+        ImagesHbox.setVisible(false);
 
     }
     public void initialize() {
@@ -269,7 +315,8 @@ public class ProjectController {
         GymImage.setImage(image6);
         Image image7 = new Image(getClass().getResource("/com/example/swe206project/Swim.jpg").toString());
         SwimImage.setImage(image7);
-
+        Image image8 = new Image(getClass().getResource("/com/example/swe206project/SportCourt.jpg").toString());
+        SportCourt.setImage(image8);
 
     }
 
