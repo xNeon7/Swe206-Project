@@ -5,7 +5,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.*;
 import javafx.scene.control.*;
-
 import java.lang.reflect.Type;
 import java.time.format.DateTimeFormatter;
 import java.io.File;
@@ -20,7 +19,10 @@ public class  ProjectController {
 
     @FXML
     private Button AccountButton;
-
+    @FXML
+    private RadioButton rMale, rFemale;
+    @FXML
+    private RadioButton rStudent, rFaculty, rStaff;
     @FXML
     private ImageView AccountIcon;
 
@@ -197,6 +199,7 @@ public class  ProjectController {
     @FXML
     void HomeButtonClick(ActionEvent event) {
     Homepage();
+    clearInputs();
     }
 
     @FXML
@@ -227,6 +230,7 @@ public class  ProjectController {
     void ConfirmButtonClick(ActionEvent event) {
     Homepage();
     SuccessLabel.setVisible(true);
+    clearInputs();
 
     }
 
@@ -261,6 +265,27 @@ public class  ProjectController {
         ImagesHbox.setVisible(false);
 
     }
+    @FXML
+    public String getGender() {
+        if (rMale.isSelected()) {
+            return "Male";
+        } else if (rFemale.isSelected()) {
+            return "Female";
+        } else {
+            return null;
+        }
+    }
+    public String getType() {
+        if (rStudent.isSelected()) {
+            return "Student selected";
+        } else if (rFaculty.isSelected()) {
+            return "Faculty selected";
+        } else if (rStaff.isSelected()) {
+            return "Staff selected";
+        } else {
+            return null;
+        }
+    }
     public void initialize() {
 
         try {
@@ -285,8 +310,9 @@ public class  ProjectController {
         PasswordInput.clear();
         EmailInput.clear();
         AlreadyRegisteredLabel.setText("Already Registered?");
-
+        clearRadioButtons();
         }
+
     void Login () {
         MenuBar.setVisible(false);
         RegisterBar.setVisible(true);
@@ -301,7 +327,7 @@ public class  ProjectController {
         UsernameInput.clear();
         PasswordInput.clear();
         EmailInput.clear();
-
+        clearRadioButtons();
     }
     void Homepage () {
         MenuBar.setVisible(true);
@@ -322,6 +348,23 @@ public class  ProjectController {
         LiketodoLabel.setVisible(false);
         WelcomeLabel.setVisible(false);
         AdminButtonsHbox.setVisible(false);
+    }
+    public void clearRadioButtons() {
+        rMale.setSelected(false);
+        rFemale.setSelected(false);
+        rStudent.setSelected(false);
+        rFaculty.setSelected(false);
+        rStaff.setSelected(false);
+    }
+    public void clearInputs(){
+        ReservationReasonInput.clear();
+        DateInput.clear();
+        StartTimeInput.clear();
+        EndTimeInput.clear();
+        ParticipantsInput.clear();
+        RoomIDInput.clear();
+
+
     }
     public boolean findReservation (Reservation Res){
         for (Reservation reservation : Reservations) {

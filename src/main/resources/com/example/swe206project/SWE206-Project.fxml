@@ -6,6 +6,7 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -98,16 +99,22 @@
                   <HBox fx:id="GenderBar" alignment="CENTER" prefHeight="50.0" prefWidth="200.0" style="-fx-spacing: 20;">
                      <children>
                         <Label text="Gender" />
-                        <RadioButton contentDisplay="TOP" mnemonicParsing="false" text="Male" />
-                        <RadioButton mnemonicParsing="false" text="Female" />
+                        <RadioButton fx:id="rMale" contentDisplay="TOP" mnemonicParsing="false" onAction="#getGender" text="Male">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="Gender" />
+                           </toggleGroup></RadioButton>
+                        <RadioButton fx:id="rFemale" mnemonicParsing="false" onAction="#getGender" text="Female" toggleGroup="$Gender" />
                      </children>
                   </HBox>
                   <HBox fx:id="TypeBar" alignment="CENTER" prefHeight="50.0" prefWidth="200.0" style="-fx-spacing: 20;">
                      <children>
                         <Label text="Type" />
-                        <RadioButton mnemonicParsing="false" text="Student" />
-                        <RadioButton mnemonicParsing="false" text="Faculty" />
-                        <RadioButton mnemonicParsing="false" text="Staff" />
+                        <RadioButton fx:id="rStudent" mnemonicParsing="false" text="Student">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="Type" />
+                           </toggleGroup></RadioButton>
+                        <RadioButton fx:id="rFaculty" mnemonicParsing="false" text="Faculty" toggleGroup="$Type" />
+                        <RadioButton fx:id="rStaff" mnemonicParsing="false" text="Staff" toggleGroup="$Type" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="35.0" prefWidth="200.0">
