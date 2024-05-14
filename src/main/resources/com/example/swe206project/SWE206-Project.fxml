@@ -6,6 +6,7 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -98,16 +99,22 @@
                   <HBox fx:id="GenderBar" alignment="CENTER" prefHeight="50.0" prefWidth="200.0" style="-fx-spacing: 20;">
                      <children>
                         <Label text="Gender" />
-                        <RadioButton contentDisplay="TOP" mnemonicParsing="false" text="Male" />
-                        <RadioButton mnemonicParsing="false" text="Female" />
+                        <RadioButton fx:id="rMale" contentDisplay="TOP" mnemonicParsing="false" onAction="#getGender" text="Male">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="Gender" />
+                           </toggleGroup></RadioButton>
+                        <RadioButton fx:id="rFemale" mnemonicParsing="false" onAction="#getGender" text="Female" toggleGroup="$Gender" />
                      </children>
                   </HBox>
                   <HBox fx:id="TypeBar" alignment="CENTER" prefHeight="50.0" prefWidth="200.0" style="-fx-spacing: 20;">
                      <children>
                         <Label text="Type" />
-                        <RadioButton mnemonicParsing="false" text="Student" />
-                        <RadioButton mnemonicParsing="false" text="Faculty" />
-                        <RadioButton mnemonicParsing="false" text="Staff" />
+                        <RadioButton fx:id="rStudent" mnemonicParsing="false" text="Student">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="Type" />
+                           </toggleGroup></RadioButton>
+                        <RadioButton fx:id="rFaculty" mnemonicParsing="false" text="Faculty" toggleGroup="$Type" />
+                        <RadioButton fx:id="rStaff" mnemonicParsing="false" text="Staff" toggleGroup="$Type" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="35.0" prefWidth="200.0">
@@ -361,6 +368,28 @@
                   </ImageView>
                </children>
             </HBox>
+            <AnchorPane fx:id="JoinEventPage" layoutX="137.0" layoutY="196.0" prefHeight="319.0" prefWidth="642.0" style="-fx-background-color: #EAEAEA;" visible="false">
+               <children>
+                  <Button fx:id="JoinButton" layoutX="241.0" layoutY="217.0" mnemonicParsing="false" onAction="#JoinButtonClick" prefHeight="26.0" prefWidth="163.0" text="Join Event" />
+                  <Label fx:id="EnterEventLabel" layoutX="96.0" layoutY="72.0" prefHeight="27.0" prefWidth="487.0" text="Enter the Name of the Event you Would like to Join">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField layoutX="212.0" layoutY="160.0" prefHeight="26.0" prefWidth="218.0" />
+                  <Label fx:id="ErrorEventnameLabel" layoutX="164.0" layoutY="115.0" prefHeight="18.0" prefWidth="317.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="ViewEventsPage" layoutX="83.0" layoutY="97.0" prefHeight="542.0" prefWidth="738.0" style="-fx-background-color: #EAEAEA;" visible="false">
+               <children>
+                  <Label layoutX="293.0" layoutY="14.0" text="Available Events">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="EventLabel" layoutX="22.0" layoutY="71.0" prefHeight="26.0" prefWidth="692.0" />
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
    </children>
