@@ -13,6 +13,8 @@ import java.util.*;
 import java.time.LocalDateTime;
 import javafx.event.ActionEvent;
 
+import javax.swing.text.View;
+
 public class  ProjectController {
     ArrayList<Reservation> Reservations = new ArrayList<>();
 
@@ -80,6 +82,9 @@ public class  ProjectController {
     private Button RegisterButton;
 
     @FXML
+    private Button JoinButton;
+
+    @FXML
     private Label RegisterErrorLabel;
 
     @FXML
@@ -95,6 +100,8 @@ public class  ProjectController {
 
     @FXML
     private AnchorPane ChoicePage;
+    @FXML
+    private AnchorPane JoinEventPage;
 
     @FXML
     private Label RoomIDLabel;
@@ -119,11 +126,13 @@ public class  ProjectController {
 
     @FXML
     private TextField UsernameInput;
+    @FXML
+    private Label EnterEventLabel;
 
     @FXML
     private Label WelcomeLabel;
-    @FXML
 
+    @FXML
     private ImageView ClassroomImage;
     @FXML
 
@@ -133,7 +142,16 @@ public class  ProjectController {
     private ImageView LabImage;
     @FXML
     private ImageView SwimImage;
+    @FXML
+    private AnchorPane ViewEventsPage;
 
+    @FXML
+    void JoinButtonClick(ActionEvent event){
+        SuccessLabel.setText("You have registered in an event!");
+        JoinEventPage.setVisible(false);
+        Homepage();
+
+    }
     @FXML
     void MakeReservationButtonClick(ActionEvent event) {
     ChoicePage.setVisible(true);
@@ -154,15 +172,26 @@ public class  ProjectController {
     }
     @FXML
     void JoinReservationEventButtonClick(ActionEvent event) {
-
+        HideHomepage();
+        JoinEventPage.setVisible(true);
+        JoinButton.setText("Join Event");
+        EnterEventLabel.setText("Enter the Name of the Event you Would like to Join");
+        SuccessLabel.setText("You have Successfully Joined an Event");
     }
     @FXML
     void ViewAllReservationsButtonClick(ActionEvent event) {
-
+        HideHomepage();
+        ViewEventsPage.setVisible(true);
     }
 
     @FXML
     void CancelReservationButtonClick(ActionEvent event) {
+        JoinEventPage.setVisible(true);
+        HideHomepage();
+        JoinButton.setText("Cancel Reservation");
+        EnterEventLabel.setText("Enter the Name of the Event you Would like to Remove");
+        SuccessLabel.setText("You have Cancelled a Reservation");
+
 
     }
     @FXML
@@ -284,6 +313,8 @@ public class  ProjectController {
         ChoicePage.setVisible(false);
         ReservationInfoPage.setVisible(false);
         SuccessLabel.setVisible(false);
+        JoinEventPage.setVisible(false);
+        ViewEventsPage.setVisible(false);
     }
     void HideHomepage(){
         ImagesHbox.setVisible(false);
